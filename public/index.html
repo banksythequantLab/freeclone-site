@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">FreeClone — AI Voice Cloning, Dubbing & Transcription</title>
+  <meta name="description" id="meta-desc" content="Clone any voice, dub videos into 9+ languages, and transcribe audio — powered by cutting-edge AI. Free tier available.">
+  <meta property="og:title" id="og-title" content="FreeClone — AI Voice Cloning & Dubbing">
+  <meta property="og:description" id="og-desc" content="Clone voices, dub content into 9+ languages, and transcribe audio with state-of-the-art AI.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;--text:#e8e8f0;--text-dim:#8888a0;--accent:#6c5ce7;--accent2:#a855f7;--accent-glow:rgba(108,92,231,0.3);--green:#10b981;--orange:#f59e0b}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:2rem;align-items:center}
+    .nav-links a{color:var(--text-dim);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{background:var(--accent)!important;color:#fff!important;padding:0.5rem 1.2rem;border-radius:8px;font-weight:600;transition:transform 0.2s,box-shadow 0.2s}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px var(--accent-glow)}
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem;position:relative;text-align:center}
+    .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none}
+    .hero-content{position:relative;max-width:800px}
+    .hero-badge{display:inline-block;padding:0.4rem 1rem;border-radius:99px;background:var(--surface2);border:1px solid var(--border);font-size:0.8rem;color:var(--accent2);margin-bottom:1.5rem;font-weight:500}
+    .hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:800;line-height:1.1;margin-bottom:1.5rem}
+    .hero h1 .gradient{background:linear-gradient(135deg,var(--accent),var(--accent2),#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{font-size:1.2rem;color:var(--text-dim);max-width:600px;margin:0 auto 2.5rem}
+    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn{padding:0.85rem 2rem;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.2s;border:none;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 20px var(--accent-glow)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+    .btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+    .btn-secondary:hover{border-color:var(--accent)}
+    .stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;flex-wrap:wrap}
+    .stat{text-align:center}.stat-num{font-size:2rem;font-weight:800;color:var(--accent2)}.stat-label{font-size:0.85rem;color:var(--text-dim)}
+    section{padding:5rem 2rem}.section-inner{max-width:1200px;margin:0 auto}
+    .section-header{text-align:center;margin-bottom:3rem}.section-header h2{font-size:2.2rem;font-weight:800;margin-bottom:0.8rem}.section-header p{color:var(--text-dim);max-width:600px;margin:0 auto}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .service-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.3s;position:relative;overflow:hidden}
+    .service-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+    .service-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem}
+    .service-card h3{font-size:1.2rem;font-weight:700;margin-bottom:0.6rem}.service-card p{color:var(--text-dim);font-size:0.95rem}
+    .service-tag{display:inline-block;margin-top:1rem;padding:0.25rem 0.75rem;border-radius:99px;font-size:0.75rem;font-weight:600}
+    .tag-free{background:rgba(16,185,129,0.15);color:var(--green)}.tag-pro{background:rgba(245,158,11,0.15);color:var(--orange)}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;counter-reset:step}
+    .step{text-align:center;position:relative}
+    .step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:800;font-size:1.2rem;margin:0 auto 1rem}
+    .step h3{font-weight:700;margin-bottom:0.5rem}.step p{color:var(--text-dim);font-size:0.9rem}
+    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;align-items:start}
+    .price-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative}
+    .price-card.featured{border-color:var(--accent);box-shadow:0 0 40px var(--accent-glow)}
+    .price-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:0.25rem 1rem;border-radius:99px;font-size:0.7rem;font-weight:700;letter-spacing:0.05em}
+    .price-tier{font-weight:700;font-size:1.1rem;margin-bottom:0.5rem}.price-amount{font-size:2.5rem;font-weight:800}.price-amount span{font-size:1rem;color:var(--text-dim);font-weight:400}
+    .price-features{list-style:none;margin:1.5rem 0}.price-features li{padding:0.4rem 0;color:var(--text-dim);font-size:0.9rem;display:flex;align-items:center;gap:0.5rem}.price-features li::before{content:'✓';color:var(--green);font-weight:700}
+    .price-btn{display:block;width:100%;padding:0.75rem;text-align:center;border-radius:10px;font-weight:600;text-decoration:none;transition:all 0.2s}
+    .price-btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}.price-btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+    .lang-grid{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+    .lang-pill{display:flex;align-items:center;gap:0.5rem;background:var(--surface);border:1px solid var(--border);padding:0.6rem 1.2rem;border-radius:99px;font-size:0.9rem}
+    .demo-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2.5rem;max-width:700px;margin:0 auto}
+    .demo-box h3{text-align:center;margin-bottom:1.5rem}
+    .upload-zone{border:2px dashed var(--border);border-radius:12px;padding:3rem 2rem;text-align:center;cursor:pointer;transition:border-color 0.2s;margin-bottom:1.5rem}
+    .upload-zone:hover{border-color:var(--accent)}.upload-zone p{color:var(--text-dim);margin-top:0.5rem;font-size:0.9rem}.upload-icon{font-size:2.5rem;margin-bottom:0.5rem}
+    .form-row{display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}.form-group{flex:1;min-width:200px}
+    .form-group label{display:block;font-size:0.85rem;color:var(--text-dim);margin-bottom:0.4rem}
+    .form-group select,.form-group input{width:100%;padding:0.7rem 1rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem}
+    .demo-submit{width:100%;padding:0.85rem;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.2s}
+    .demo-submit:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+    .b2b-section{background:var(--surface)}.b2b-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+    .b2b-content h2{font-size:2rem;font-weight:800;margin-bottom:1rem}.b2b-content p{color:var(--text-dim);margin-bottom:1.5rem}
+    .b2b-stats{display:flex;gap:2rem;flex-wrap:wrap}.b2b-stat{text-align:center}.b2b-stat-num{font-size:1.8rem;font-weight:800;color:var(--accent2)}.b2b-stat-label{font-size:0.8rem;color:var(--text-dim)}
+    footer{border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;color:var(--text-dim);font-size:0.85rem}
+    @media(max-width:768px){.nav-links{display:none}.b2b-grid{grid-template-columns:1fr}.stats{gap:1.5rem}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-up{animation:fadeUp 0.6s ease both}.delay-1{animation-delay:0.1s}.delay-2{animation-delay:0.2s}.delay-3{animation-delay:0.3s}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner"><div class="logo" id="nav-logo">FreeClone</div><div class="nav-links"><a href="#services">Services</a><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a href="#demo" class="nav-cta">Try Free</a></div></div></nav>
+  <section class="hero"><div class="hero-content">
+    <div class="hero-badge fade-up" id="hero-badge">Powered by CosyVoice 2 + Cohere Transcribe</div>
+    <h1 class="fade-up delay-1" id="hero-h1"><span class="gradient" id="hero-gradient">Clone Any Voice.</span><br><span id="hero-sub">Dub Into 9 Languages.</span></h1>
+    <p class="fade-up delay-2" id="hero-p">State-of-the-art voice cloning, transcription, translation, and video dubbing. No signup required for your first clone.</p>
+    <div class="hero-actions fade-up delay-3"><a href="#demo" class="btn btn-primary">Clone a Voice Free</a><a href="#pricing" class="btn btn-secondary">View Plans</a></div>
+    <div class="stats fade-up delay-3"><div class="stat"><div class="stat-num">9+</div><div class="stat-label">Languages</div></div><div class="stat"><div class="stat-num">&lt;10s</div><div class="stat-label">Synthesis</div></div><div class="stat"><div class="stat-num">5.42%</div><div class="stat-label">WER (SOTA)</div></div><div class="stat"><div class="stat-num">$0</div><div class="stat-label">To Start</div></div></div>
+  </div></section>
+  <section id="services"><div class="section-inner">
+    <div class="section-header"><h2>Everything You Need for Voice AI</h2><p>From a 10-second voice sample to full multilingual dubbing — all in one platform.</p></div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🎙️</div><h3>Voice Cloning</h3><p>Upload a short audio clip and clone any voice with natural prosody, emotion, and accent preservation.</p><span class="service-tag tag-free">Free Tier</span></div>
+      <div class="service-card"><div class="service-icon">📝</div><h3>Transcription</h3><p>Industry-leading speech-to-text with 5.42% word error rate. Supports 14+ languages out of the box.</p><span class="service-tag tag-free">Free Tier</span></div>
+      <div class="service-card"><div class="service-icon">🌍</div><h3>Translation</h3><p>Translate transcripts between languages instantly with context-aware neural translation.</p><span class="service-tag tag-free">Free Tier</span></div>
+      <div class="service-card"><div class="service-icon">🎬</div><h3>Video Dubbing</h3><p>Upload a video, pick a target language, and get back a fully dubbed version with cloned voice and synced audio.</p><span class="service-tag tag-pro">Pro</span></div>
+      <div class="service-card"><div class="service-icon">📦</div><h3>Bulk Processing</h3><p>Process hundreds of files via API or batch upload. Perfect for content libraries, podcasts, and media companies.</p><span class="service-tag tag-pro">Pro</span></div>
+      <div class="service-card"><div class="service-icon">🔌</div><h3>API Access</h3><p>Integrate voice cloning, transcription, and dubbing directly into your apps via our REST API.</p><span class="service-tag tag-pro">Pro</span></div>
+    </div>
+  </div></section>
+  <section style="background:var(--surface)"><div class="section-inner">
+    <div class="section-header"><h2>Cross-Lingual Voice Cloning</h2><p>Clone a voice in one language and speak it in another — preserving the original speaker's tone and style.</p></div>
+    <div class="lang-grid"><div class="lang-pill">🇺🇸 English</div><div class="lang-pill">🇨🇳 Chinese</div><div class="lang-pill">🇯🇵 Japanese</div><div class="lang-pill">🇰🇷 Korean</div><div class="lang-pill">🇩🇪 German</div><div class="lang-pill">🇪🇸 Spanish</div><div class="lang-pill">🇫🇷 French</div><div class="lang-pill">🇮🇹 Italian</div><div class="lang-pill">🇷🇺 Russian</div></div>
+  </div></section>
+  <section id="how-it-works"><div class="section-inner">
+    <div class="section-header"><h2>How It Works</h2><p>Three steps from upload to dubbed output.</p></div>
+    <div class="steps">
+      <div class="step"><h3>Upload</h3><p>Drop your audio or video file. We accept MP3, WAV, MP4, MOV, and more.</p></div>
+      <div class="step"><h3>Configure</h3><p>Choose your service: clone, transcribe, translate, or full dubbing. Select target language.</p></div>
+      <div class="step"><h3>Process</h3><p>Our AI pipeline transcribes, translates, clones your voice, and muxes the new audio back.</p></div>
+      <div class="step"><h3>Download</h3><p>Get your result in seconds. No watermark on Pro. API webhook for batch jobs.</p></div>
+    </div>
+  </div></section>
+  <section id="demo" style="background:var(--surface)"><div class="section-inner">
+    <div class="section-header"><h2>Try It Now</h2><p>Upload audio and experience AI voice cloning — no account needed.</p></div>
+    <div class="demo-box"><h3>Quick Voice Clone</h3>
+      <div class="upload-zone" id="upload-zone"><div class="upload-icon">🎙️</div><strong>Drop your audio file here</strong><p>MP3, WAV, FLAC, OGG — up to 30 seconds for free tier</p><input type="file" id="audio-file" accept="audio/*" style="display:none"></div>
+      <div class="form-row"><div class="form-group"><label>Text to speak</label><input type="text" id="clone-text" placeholder="Enter text to speak in the cloned voice..."></div></div>
+      <div class="form-row"><div class="form-group"><label>Service</label><select id="service-select"><option value="clone">Voice Clone</option><option value="transcribe">Transcribe</option><option value="translate">Translate Audio</option><option value="dub">Full Video Dub</option></select></div>
+      <div class="form-group"><label>Target Language</label><select id="lang-select"><option value="en">English</option><option value="es">Spanish</option><option value="fr">French</option><option value="de">German</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="it">Italian</option><option value="ru">Russian</option></select></div></div>
+      <button class="demo-submit" id="demo-btn">Clone Voice</button>
+      <div id="demo-result" style="margin-top:1.5rem;display:none"></div>
+    </div>
+  </div></section>
+  <section id="pricing"><div class="section-inner">
+    <div class="section-header"><h2>Simple, Transparent Pricing</h2><p>Start free. Scale when you're ready.</p></div>
+    <div class="pricing-grid">
+      <div class="price-card"><div class="price-tier">Free</div><div class="price-amount">$0<span>/mo</span></div>
+        <ul class="price-features"><li>5 voice clones / month</li><li>30 min transcription</li><li>3 translations / month</li><li>Watermarked output</li><li>Ad-supported</li></ul>
+        <a href="#demo" class="price-btn price-btn-secondary">Get Started</a></div>
+      <div class="price-card featured"><div class="price-tier">Pro</div><div class="price-amount">$9.99<span>/mo</span></div>
+        <ul class="price-features"><li>100 voice clones / month</li><li>10 hrs transcription</li><li>Unlimited translation</li><li>Video dubbing (5 hrs)</li><li>No watermark</li><li>API access</li><li>Priority queue</li></ul>
+        <a href="#demo" class="price-btn price-btn-primary">Start Pro Trial</a></div>
+      <div class="price-card"><div class="price-tier">Creator</div><div class="price-amount">$29.99<span>/mo</span></div>
+        <ul class="price-features"><li>Unlimited clones</li><li>50 hrs transcription</li><li>Unlimited dubbing</li><li>Bulk batch upload</li><li>Saved voice profiles</li><li>Webhook callbacks</li><li>Dedicated support</li></ul>
+        <a href="#demo" class="price-btn price-btn-secondary">Contact Sales</a></div>
+      <div class="price-card"><div class="price-tier">Enterprise / B2B</div><div class="price-amount">Custom</div>
+        <ul class="price-features"><li>Volume pricing</li><li>Custom SLA</li><li>On-premise deployment</li><li>White-label option</li><li>Dedicated GPU cluster</li><li>Account manager</li></ul>
+        <a href="mailto:dj@soltis.info" class="price-btn price-btn-secondary">Get a Quote</a></div>
+    </div>
+  </div></section>
+  <section class="b2b-section" id="b2b-section"><div class="section-inner"><div class="b2b-grid">
+    <div class="b2b-content"><h2>Built for Content Studios & Agencies</h2>
+      <p>Replace $5K-$15K per hour traditional dubbing with AI that delivers in minutes. Send us your video or audio library and we'll return fully dubbed, voice-matched content in any of our supported languages.</p>
+      <p>Already trusted by legal offices, media companies, and content creators who need fast, accurate multilingual content.</p>
+      <a href="mailto:dj@soltis.info" class="btn btn-primary" style="margin-top:1rem">Schedule a Demo</a></div>
+    <div class="b2b-stats"><div class="b2b-stat"><div class="b2b-stat-num">98%</div><div class="b2b-stat-label">Cost Reduction</div></div><div class="b2b-stat"><div class="b2b-stat-num">9</div><div class="b2b-stat-label">Languages</div></div><div class="b2b-stat"><div class="b2b-stat-num">&lt;5m</div><div class="b2b-stat-label">Turnaround</div></div><div class="b2b-stat"><div class="b2b-stat-num">24/7</div><div class="b2b-stat-label">API Available</div></div></div>
+  </div></div></section>
+  <footer><p id="footer-text">&copy; 2026 FreeClone. AI Voice Cloning & Dubbing Platform. All rights reserved.</p>
+    <p style="margin-top:0.5rem;font-size:0.75rem"><a href="mailto:dj@soltis.info" style="color:var(--text-dim)">Contact</a> · <a href="#" style="color:var(--text-dim)">Privacy</a> · <a href="#" style="color:var(--text-dim)">Terms</a> · <a href="#" style="color:var(--text-dim)">API Docs</a></p>
+  </footer>
+  <script>
+    const host=window.location.hostname,isVoiceClone=host.includes('freevoiceclone');
+    if(isVoiceClone){document.getElementById('page-title').textContent='Free Voice Clone — Clone Any Voice with AI Instantly';document.getElementById('meta-desc').setAttribute('content','Free AI voice cloning tool. Clone any voice from a 10-second sample. No signup, no download.');document.getElementById('og-title').setAttribute('content','Free Voice Clone — AI Voice Cloning Tool');document.getElementById('nav-logo').textContent='FreeVoiceClone';document.getElementById('hero-badge').textContent='Free AI Voice Cloning — No Signup Required';document.getElementById('hero-gradient').textContent='Clone Any Voice Free.';document.getElementById('hero-sub').textContent='In Seconds. From Your Browser.';document.getElementById('hero-p').textContent='Upload a 10-second voice clip and our AI instantly creates a natural-sounding clone. Speak any text in that voice — free, no account needed.';document.getElementById('footer-text').textContent='\u00A9 2026 FreeVoiceClone. Free AI Voice Cloning Tool.';document.getElementById('b2b-section').style.display='none'}
+    const uploadZone=document.getElementById('upload-zone'),fileInput=document.getElementById('audio-file');
+    uploadZone.addEventListener('click',()=>fileInput.click());
+    uploadZone.addEventListener('dragover',e=>{e.preventDefault();uploadZone.style.borderColor='var(--accent)'});
+    uploadZone.addEventListener('dragleave',()=>{uploadZone.style.borderColor='var(--border)'});
+    uploadZone.addEventListener('drop',e=>{e.preventDefault();uploadZone.style.borderColor='var(--border)';if(e.dataTransfer.files.length){fileInput.files=e.dataTransfer.files;uploadZone.querySelector('strong').textContent=e.dataTransfer.files[0].name}});
+    fileInput.addEventListener('change',()=>{if(fileInput.files.length)uploadZone.querySelector('strong').textContent=fileInput.files[0].name});
+    document.getElementById('service-select').addEventListener('change',e=>{const l={clone:'Clone Voice',transcribe:'Transcribe Audio',translate:'Translate Audio',dub:'Dub Video'};document.getElementById('demo-btn').textContent=l[e.target.value]||'Process'});
+    document.getElementById('demo-btn').addEventListener('click',()=>{const r=document.getElementById('demo-result');r.style.display='block';r.innerHTML='<div style="text-align:center;padding:2rem;background:var(--surface2);border-radius:12px"><p style="color:var(--accent2);font-weight:600">Processing...</p><p style="color:var(--text-dim);font-size:0.9rem;margin-top:0.5rem">API endpoint coming online soon. Join the waitlist.</p><input type="email" placeholder="your@email.com" style="margin-top:1rem;padding:0.6rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);width:80%;max-width:300px"><br><button style="margin-top:0.75rem;padding:0.5rem 1.5rem;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Join Waitlist</button></div>'});
+  </script>
+</body></html>
