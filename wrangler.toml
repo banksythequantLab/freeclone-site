@@ -4,3 +4,9 @@ compatibility_date = "2024-09-23"
 
 [assets]
 directory = "./public"
+
+# Custom domain - freeclone.net
+routes = [
+  { pattern = "freeclone.net/*", zone_name = "freeclone.net" },
+  { pattern = "www.freeclone.net/*", zone_name = "freeclone.net" }
+]
